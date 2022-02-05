@@ -6,7 +6,9 @@ public class Registration extends Frame implements ActionListener{
     TextField Age=new TextField(10);
     TextField Address=new TextField(10);
     TextField Phone=new TextField(10);
-   
+    CheckboxGroup job;
+    Checkbox Student =  new Checkbox("Student", job, false);
+    Checkbox Teacher = new Checkbox("Teacher", job, false);
     Button button;
 
     //Registration Constructor
@@ -42,7 +44,11 @@ public class Registration extends Frame implements ActionListener{
     add(lab4);
     add(Phone);
 
-    
+    job = new CheckboxGroup();
+    Student =  new Checkbox("Student", job, false);
+    Teacher = new Checkbox("Teacher", job, false);
+    add(Student);
+    add(Teacher);
 
     button = new Button("SUBMIT");
     add(button);
@@ -55,6 +61,13 @@ public class Registration extends Frame implements ActionListener{
         System.out.println("AGE :"+Age.getText());    
         System.out.println("ADDRESS :"+Address.getText());
         System.out.println("PHONE NUMBER :"+Phone.getText()); 
+        boolean b= Student.getState();
+        if(b){
+            System.out.println("Student");
+        }
+        else{
+            System.out.println("Teacher");
+        }
     }
     public static void main(String[] args) {
         new Registration();
